@@ -1,0 +1,5 @@
+appId: pawel.zak.findmypasttask
+---
+- tapOn: "Insert user id"
+- inputText: ${USER_ID}
+- tapOn: "Submit"

@@ -1,0 +1,8 @@
+appId: pawel.zak.findmypasttask
+---
+- launchApp
+- runFlow:
+    file: nested_flows/GoToProfileList.yaml
+    env:
+      USER_ID: "ejohnson"
+- assertVisible: Sorry we couldn't find any relatives

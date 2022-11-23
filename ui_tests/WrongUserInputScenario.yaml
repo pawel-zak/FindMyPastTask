@@ -1,0 +1,8 @@
+appId: pawel.zak.findmypasttask
+---
+- launchApp
+- runFlow:
+    file: nested_flows/GoToProfileList.yaml
+    env:
+      USER_ID: "wrong user"
+- assertVisible: Error occurred, check input or internet connection

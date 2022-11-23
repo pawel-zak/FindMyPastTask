@@ -1,0 +1,15 @@
+appId: pawel.zak.findmypasttask
+---
+- launchApp
+- runFlow:
+    file: nested_flows/GoToProfileList.yaml
+    env:
+      USER_ID: "cgriswold"
+- tapOn: Clark Griswold, Jr
+- assertVisible: Clark Griswold, Sr
+- assertVisible: Nora Griswold
+- assertVisible: Clark Griswold, Jr
+- assertVisible: Ellen Griswold
+- assertVisible: Audrey Griswold
+- assertVisible: Russ Griswold
+

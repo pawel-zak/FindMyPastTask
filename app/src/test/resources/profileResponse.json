@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "data": {
+    "id": "002",
+    "firstname": "Ellen",
+    "surname": "Griswold",
+    "dob": "15111951",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTMyNTk4ODU5NV5BMl5BanBnXkFtZTcwODU0OTgwMw@@._V1_UY317_CR6,0,214,317_AL_.jpg",
+    "relationships": {
+      "spouse": "001",
+      "mother": "003",
+      "father": "004",
+      "children": [
+        "009",
+        "010"
+      ]
+    }
+  }
+}
