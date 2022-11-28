@@ -9,6 +9,6 @@ import javax.inject.Inject
 
 class GetProfileUseCase @Inject constructor(private val repository: UserProfilesRepository) {
     suspend operator fun invoke(userId: String, profileId: String): Flow<Resource<Profile>> {
-        return repository.getProfile(userId, profileId)
+        return repository.getMainProfile(userId, profileId)
     }
 }

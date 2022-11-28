@@ -6,5 +6,6 @@ import pawel.zak.findmypasttask.domain.model.Profile
 
 interface UserProfilesRepository {
     suspend fun getProfiles(userId: String): Flow<Resource<List<Profile>>>
+    suspend fun getMainProfile(userId: String, profileId: String): Flow<Resource<Profile>>
     suspend fun getProfile(userId: String, profileId: String): Flow<Resource<Profile>>
 }

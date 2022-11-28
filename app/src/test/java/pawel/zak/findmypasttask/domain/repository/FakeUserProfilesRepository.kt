@@ -10,6 +10,10 @@ internal class FakeUserProfilesRepository: UserProfilesRepository{
         TODO("Not yet implemented")
     }
 
+    override suspend fun getMainProfile(userId: String, profileId: String): Flow<Resource<Profile>> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getProfile(userId: String, profileId: String): Flow<Resource<Profile>> {
         TODO("Not yet implemented")
     }

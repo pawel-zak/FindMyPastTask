@@ -8,10 +8,14 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 object ResourceRequest {
-    suspend fun <R> safeRequest(request: suspend () -> R) =
+    suspend fun <R> safeRequest(
+        withLoading: Boolean = true,
+        request: suspend () -> R
+    ) =
         flow {
             try {
-                emit(Resource.Loading())
+                if (withLoading)
+                    emit(Resource.Loading())
                 val result = request()
                 emit(Resource.Success(result))
             } catch (e: HttpException) {

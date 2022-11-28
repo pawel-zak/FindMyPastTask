@@ -180,7 +180,7 @@ class UserProfilesRepositoryImplTest {
     @Test
     fun `getting profiles from network request, Success resource with list of profile`() = runTest {
 
-        val profilesDto = UserProfilesDto(listOfProfileRemote, true)
+        val profilesDto = UserProfilesDto(listOfProfileRemote, true, null)
 
         coEvery { userProfilesDao.isUserProfilesStored(any()) } returns false
         coEvery { api.getProfiles(any()) } returns profilesDto
@@ -218,7 +218,7 @@ class UserProfilesRepositoryImplTest {
 
         coEvery { userProfilesDao.getProfile(any()) } returns profileLocal
 
-        systemUnderTest.getProfile(userLocal.userId, profile.id).test {
+        systemUnderTest.getMainProfile(userLocal.userId, profile.id).test {
             assertThat(awaitItem()).isInstanceOf(Resource.Loading::class.java)
             val result = awaitItem()
             assertThat(result).isInstanceOf(Resource.Success::class.java)
@@ -234,7 +234,7 @@ class UserProfilesRepositoryImplTest {
         coEvery { userProfilesDao.getProfile(any()) } returns listOfProfileLocal[0]
         coEvery { api.getProfile(any(), any()) } returns ProfileDto(profileRemote, true)
 
-        systemUnderTest.getProfile(userLocal.userId, profile.id).test {
+        systemUnderTest.getMainProfile(userLocal.userId, profile.id).test {
             assertThat(awaitItem()).isInstanceOf(Resource.Loading::class.java)
             val result = awaitItem()
             assertThat(result).isInstanceOf(Resource.Success::class.java)
